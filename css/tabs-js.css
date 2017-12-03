@@ -1,0 +1,51 @@
+.tabsjs-slides, .tabsjs-caption {
+  position: relative;
+  padding: 0; }
+  .tabsjs-slides > li, .tabsjs-caption > li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none; }
+    .tabsjs-slides > li.tabsjs-actived, .tabsjs-caption > li.tabsjs-actived {
+      position: static;
+      display: block;
+      -webkit-animation: tabsjs-fadeIn 0.4s ease forwards;
+      animation: tabsjs-fadeIn 0.4s ease forwards;
+      z-index: 99; }
+    .tabsjs-slides > li.tabsjs-deactived, .tabsjs-caption > li.tabsjs-deactived {
+      display: block;
+      -webkit-animation: tabsjs-fadeOut 0.4s ease forwards;
+      animation: tabsjs-fadeOut 0.4s ease forwards; }
+    .tabsjs-slides > li img, .tabsjs-caption > li img {
+      width: 300px;
+      height: auto; }
+
+.tabsjs-pag > li {
+  display: inline-block;
+  cursor: pointer; }
+  .tabsjs-pag > li.tabsjs-actived {
+    background-color: red; }
+
+@-webkit-keyframes tabsjs-fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes tabsjs-fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes tabsjs-fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes tabsjs-fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

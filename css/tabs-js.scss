@@ -1,0 +1,44 @@
+// TABS-JS STYLES
+.tabsjs-slides, .tabsjs-caption {
+  position: relative;
+  padding: 0;
+  > li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    &.tabsjs-actived {
+      position: static;
+      display: block;
+      animation: tabsjs-fadeIn 0.4s ease forwards;
+      z-index: 99;
+    }
+    &.tabsjs-deactived {
+      display: block;
+      animation: tabsjs-fadeOut 0.4s ease forwards;
+    }
+    img {
+      width: 300px;
+      height: auto;
+    }
+  }
+}
+
+.tabsjs-pag {
+  > li {
+    display: inline-block;
+    cursor: pointer;
+    &.tabsjs-actived {
+      background-color: red;
+    }
+  }
+}
+
+@keyframes tabsjs-fadeOut {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+@keyframes tabsjs-fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
