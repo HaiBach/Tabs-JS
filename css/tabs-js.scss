@@ -17,10 +17,6 @@
       display: block;
       animation: tabsjs-fadeOut 0.4s ease forwards;
     }
-    img {
-      width: 300px;
-      height: auto;
-    }
   }
 }
 
@@ -28,9 +24,6 @@
   > li {
     display: inline-block;
     cursor: pointer;
-    &.tabsjs-actived {
-      background-color: red;
-    }
   }
 }
 

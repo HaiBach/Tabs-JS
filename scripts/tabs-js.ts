@@ -23,7 +23,7 @@ class TabsJS {
     for( let i = 0, len = $nodes.length; i < len; i++ ) {
       $nodesNew.push($nodes[i]);
     }
-    return $nodesNew
+    return $nodesNew;
   }
   private find($nodes, selector) {
     let $nodesNew = [];
@@ -43,13 +43,21 @@ class TabsJS {
   private removeWS(str) {
     return str.replace(/(^\s+)|(\s+$)/g, '').replace(/(\s\s+)/g, ' ');
   }
-  private addClass($node, strClass) {
-    let classOnNode = $node.getAttribute('class') || '';
+  private addClass($nodes, strClass) {
     let arrClass = strClass.split(' ');
 
-    for( let key in arrClass ) {
-      if( classOnNode.indexOf(arrClass[key]) === -1 ) {
-        $node.setAttribute('class', this.removeWS(classOnNode +' '+ arrClass[key]) );
+    // Convert one node to array
+    if( !!$nodes.nodeType ) $nodes = [$nodes];
+
+    // Loop to get all node in array
+    for( let i = 0, len = $nodes.length; i < len; i++ ) {
+      let $nodeCur = $nodes[i];
+      let classOnNode = $nodeCur.getAttribute('class') || '';
+
+      for( let key in arrClass ) {
+        if( classOnNode.indexOf(arrClass[key]) === -1 ) {
+          $nodeCur.setAttribute('class', this.removeWS(classOnNode +' '+ arrClass[key]) );
+        }
       }
     }
   }
@@ -127,6 +135,7 @@ class TabsJS {
 }
 
 
-(function() {
-  let $tabs = new TabsJS('[role="tabsjs"]');
-})();
+//- Tabs Initial
+document.addEventListener('DOMContentLoaded', function() {
+  let $tabs = new TabsJS('.tabsjs');
+});
